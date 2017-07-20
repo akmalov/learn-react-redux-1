@@ -6,8 +6,7 @@ module.exports = {
     entry: [
         'react-hot-loader/patch',
         'webpack-hot-middleware/client',
-        'babel-polyfill',
-        './src/index'
+        path.join(__dirname, 'src', 'index.js')
     ],
     output: {
         path: path.join(__dirname, 'dist'),
@@ -15,18 +14,25 @@ module.exports = {
         publicPath: '/static/'
     },
     plugins: [
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
     ],
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     module: {
         loaders: [
             {
+                test: /\.js$/,
+                enforce: 'pre',
+                loaders: ['eslint-loader'],
+                include: [path.resolve(__dirname, "src")],
+                exclude: /node_modules/
+            },
+            {
+                test: /\.jsx?$/,
                 loaders: ['babel-loader'],
-                exclude: /node_modules/,
-                include: [
-                    path.resolve(__dirname, 'src'),
-                ],
-                test: /\.js$/
+                include: [path.resolve(__dirname, "src")],
+                exclude: /node_modules/
             }
         ]
     }
