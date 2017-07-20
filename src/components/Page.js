@@ -13,7 +13,7 @@ export default class Page extends Component {
                 <button onClick={::this.onYearBtnClick}>2014</button>
             </p>
             <h3>{year} год</h3>
-            <p>У тебя {props.length} фото.</p>
+            <p>У тебя {photos.length} фото.</p>
         </div>
     }
 }
