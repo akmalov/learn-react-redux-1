@@ -1,5 +1,7 @@
 let path = require('path');
 let webpack = require('webpack');
+let autoprefixer = require('autoprefixer');
+let preccs = require('precss');
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
@@ -33,6 +35,14 @@ module.exports = {
                 loaders: ['babel-loader'],
                 include: [path.resolve(__dirname, "src")],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    { loader: 'css-loader', options: { importLoaders: 1 } },
+                    'postcss-loader'
+                ]
             }
         ]
     }
