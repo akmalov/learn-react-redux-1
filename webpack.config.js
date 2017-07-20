@@ -1,7 +1,5 @@
 let path = require('path');
 let webpack = require('webpack');
-let autoprefixer = require('autoprefixer');
-let preccs = require('precss');
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
@@ -22,7 +20,7 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 enforce: 'pre',
