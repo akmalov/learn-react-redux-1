@@ -1,5 +1,5 @@
-import path from 'path';
-import webpack from 'webpack';
+let path = require('path');
+let webpack = require('webpack');
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
@@ -15,8 +15,7 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.HotModuleReplacementPlugin()
     ],
     module: {
         loaders: [

@@ -1,8 +1,8 @@
-import webpack from 'webpack';
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
-import config from './webpack.config';
-import express from 'express';
+let webpack = require('webpack');
+let webpackDevMiddleware = require('webpack-dev-middleware');
+let webpackHotMiddleware = require('webpack-hot-middleware');
+let config = require('./webpack.config');
+let express = require('express');
 
 let app = new express;
 let port = 3000;
